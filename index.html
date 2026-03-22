@@ -60,6 +60,10 @@
         
         /* Kill any text-transparent that might still apply */
         [class*="text-transparent"] { color: #e2e8f0 !important; }
+
+        /* Force PHP impact text red at all times (including peso symbol) */
+        #phpImpact { color: #ef4444 !important; }
+        #phpImpact span { color: #fca5a5 !important; }
         
         /* Typography */
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; overflow-x: hidden; background-color: #0f172a; }
@@ -787,6 +791,7 @@
                 crudeSpikeVal.textContent = `+$${shockValue}`;
                 const estimatedPHP = (shockValue * 0.40).toFixed(2);
                 phpImpact.innerHTML = `+₱${estimatedPHP} <span class="text-sm text-slate-500">/L</span>`;
+                phpImpact.style.color = '#ef4444';
                 
                 if (shockValue >= 100) phpImpact.className = "font-display text-4xl text-red-700 font-bold drop-shadow-lg";
                 else if (shockValue >= 50) phpImpact.className = "font-display text-3xl text-red-600 font-bold drop-shadow-md";
