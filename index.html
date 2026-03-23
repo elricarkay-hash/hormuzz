@@ -3,71 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 21-Mile Chokepoint - Geopolitics Infographic</title>
+    <title>The 21-Mile Chokepoint - Geopolitics Interactive Report</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <script>
-        // Detect if Tailwind CDN failed and apply fallback
-        window.addEventListener('DOMContentLoaded', () => {
-            const testEl = document.createElement('div');
-            testEl.className = 'flex';
-            document.body.appendChild(testEl);
-            const styles = window.getComputedStyle(testEl);
-            document.body.removeChild(testEl);
-            
-            if (styles.display !== 'flex') {
-                console.warn('Tailwind CSS failed to load, applying fallback styles');
-                const fallbackCSS = document.createElement('style');
-                fallbackCSS.textContent = `
-                    body { line-height: 1.5; margin: 0; padding: 0; }
-                    section { display: block; padding: 50px 20px; }
-                    h1, h2, h3 { margin: 20px 0 10px; line-height: 1.2; font-weight: bold; }
-                    p { margin: 10px 0; }
-                    button { padding: 10px 15px; cursor: pointer; border: 1px solid #ccc; }
-                    input[type=range] { width: 100%; height: 5px; cursor: pointer; }
-                    canvas { max-width: 100%; height: auto; }
-                `;
-                document.head.appendChild(fallbackCSS);
-            }
-        });
-    </script>
-    
     <style>
-        /* Fallback if Tailwind fails to load */
-        @supports not (display: grid) {
-            * { box-sizing: border-box; }
-            body { display: block; }
-        }
-        
-        /* FORCE text to be visible - override ANY text-transparent classes */
-        * { color: inherit !important; }
-        body, h1, h2, h3, h4, h5, h6, p, span, div, section, a, button, label, strong, em, li, td, th { 
-            color: #e2e8f0 !important; 
-            text-decoration-color: #e2e8f0 !important;
-        }
-        
-        /* Override specific text colors */
-        .text-slate-300 { color: #cbd5e1 !important; }
-        .text-slate-400 { color: #94a3b8 !important; }
-        .text-white { color: #ffffff !important; }
-        .text-blue-300 { color: #93c5fd !important; }
-        .text-blue-400 { color: #60a5fa !important; }
-        .text-red-300 { color: #fca5a5 !important; }
-        .text-red-400 { color: #f87171 !important; }
-        .text-red-500 { color: #ef4444 !important; }
-        
-        /* Kill any text-transparent that might still apply */
-        [class*="text-transparent"] { color: #e2e8f0 !important; }
-
-        /* Force PHP impact text red at all times (including peso symbol) */
-        #phpImpact { color: #ef4444 !important; }
-        #phpImpact span { color: #fca5a5 !important; }
-        
         /* Typography */
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; overflow-x: hidden; background-color: #0f172a; }
-        h1, h2, h3, h4, .font-display { font-family: 'Oswald', 'Arial', 'Helvetica', sans-serif; text-transform: uppercase; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; background-color: #0f172a; }
+        h1, h2, h3, h4, .font-display { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         
         /* Infographic Scroll Animations */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
@@ -82,7 +26,7 @@
         .info-map-container {
             position: relative; width: 100%; height: 550px; 
             background-color: #0f172a;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/87/Strait_of_Hormuz_%28NASA%29.jpg');
+            background-image: url('https://share.google/kjxHNz7MHIbbjWDW1');
             background-size: cover;
             background-position: center;
             border-radius: 0 0 1rem 1rem;
@@ -101,7 +45,7 @@
         /* Explicit Landmass Overlays */
         .map-land { 
             position: absolute; 
-            background-color: rgba(30, 41, 59, 0.65); /* Semi-transparent slate */
+            background-color: rgba(30, 41, 59, 0.65); 
             backdrop-filter: blur(2px);
             transition: background-color 0.5s ease, border-color 0.5s ease; 
             box-shadow: 0 15px 40px rgba(0,0,0,0.6); 
@@ -172,12 +116,12 @@
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto reveal">
             
             <div class="inline-block bg-red-900/60 border border-red-500/50 text-red-300 font-display text-xs md:text-sm px-4 py-1.5 tracking-[0.3em] rounded-sm mb-6 shadow-[0_0_20px_rgba(239,68,68,0.4)] animate-pulse">
-                ACTIVE CONFLICT ZONE - 2026
+                ACTIVE CONFLICT ZONE - ONGOING
             </div>
             
-            <h1 class="text-6xl md:text-8xl lg:text-[9rem] font-bold font-display leading-none mb-2 text-white drop-shadow-2xl" style="color: white !important;">
+            <h1 class="text-6xl md:text-8xl lg:text-[9rem] font-bold font-display leading-none mb-2 text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 drop-shadow-2xl">
                 THE 21-MILE<br>
-                <span class="text-blue-400" style="color: #60a5fa !important;">CHOKEPOINT</span>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">CHOKEPOINT</span>
             </h1>
             
             <h2 class="text-xl md:text-3xl font-display tracking-[0.2em] text-slate-300 mb-8 mt-4">
@@ -185,7 +129,7 @@
             </h2>
             
             <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
-                As the ongoing 2026 U.S.-Israel vs. Iran conflict engulfs the region, this dangerously narrow waterway dictates the stability of the world's economy. Import-dependent nations are already feeling the shock.
+                As the ongoing U.S.-Israel vs. Iran conflict engulfs the region, this dangerously narrow waterway dictates the stability of the world's economy. Import-dependent nations are already feeling the shock.
             </p>
             
             <!-- Student / Course Information (Subtle) -->
@@ -275,14 +219,14 @@
                         </div>
                         
                         <!-- Map Source Citation -->
-                        <div class="absolute bottom-3 right-3 z-40 text-[9px] md:text-[10px] text-slate-300 font-display tracking-widest uppercase pointer-events-none bg-black/60 backdrop-blur-sm px-2 py-1 rounded border border-slate-700/50 shadow-md">
-                            Map representation based on EIA (2025)
+                        <div class="absolute bottom-3 right-3 z-40 text-[8px] md:text-[10px] text-slate-300 font-display tracking-widest uppercase pointer-events-none bg-black/70 backdrop-blur-sm px-3 py-1.5 rounded border border-slate-700/50 shadow-md text-right max-w-[200px] md:max-w-xs leading-tight">
+                            *Visualization based on Google Maps
                         </div>
                     </div>
                     
                     <div class="bg-slate-900 border border-t-0 border-slate-700 p-5 rounded-b-xl border-l-4 border-l-blue-500 shadow-md transition-colors z-20 relative" id="map-narrative-border">
                         <p class="text-sm text-slate-300 leading-relaxed"><strong class="text-white font-display tracking-widest text-xs uppercase block mb-1">Interpretation: Physical Vulnerability</strong> 
-                        Looking at the satellite imagery, the severe geographic constraint is obvious. 🚢 Supertankers must navigate precisely through the narrow channel formed where Oman's mountainous Musandam Peninsula juts sharply upward toward the Iranian coast. The ongoing military operations and missile exchanges involving the U.S., Israel, and Iran, along with regional tensions affecting Gulf states, make navigating this 21-mile gap exceptionally dangerous for civilian crews.</p>
+                        Looking at the satellite imagery, the severe geographic constraint is obvious. 🚢 Supertankers must navigate precisely through the narrow channel formed where Oman's mountainous Musandam Peninsula juts sharply upward toward the Iranian coast. The ongoing military operations involving the U.S., Israel, and Iran make navigating this gap exceptionally dangerous for civilian crews (Bloomberg, 2026b).</p>
                     </div>
                 </div>
 
@@ -298,11 +242,11 @@
                         <div class="mt-auto border-t border-slate-700 pt-6">
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <div class="text-slate-500 font-display text-xs tracking-widest mb-1">MAX WIDTH (EIA, 2025)</div>
+                                    <div class="text-slate-500 font-display text-xs tracking-widest mb-1">MAX WIDTH (EIA, 2024)</div>
                                     <div class="text-2xl font-bold font-display text-white">60 MILES</div>
                                 </div>
                                 <div>
-                                    <div class="text-slate-500 font-display text-xs tracking-widest mb-1">NAVIGABLE (EIA, 2025)</div>
+                                    <div class="text-slate-500 font-display text-xs tracking-widest mb-1">NAVIGABLE (EIA, 2024)</div>
                                     <div class="text-2xl font-bold font-display text-blue-400" id="stat-navigable">2 MILES</div>
                                 </div>
                             </div>
@@ -343,7 +287,7 @@
                     </div>
                     
                     <div class="text-center border-l border-slate-700 pl-0 lg:pl-12">
-                        <div class="text-slate-500 font-display text-sm tracking-widest mb-2">DAILY TRANSIT VOLUME (EIA, 2025)</div>
+                        <div class="text-slate-500 font-display text-sm tracking-widest mb-2">DAILY TRANSIT VOLUME (EIA, 2024)</div>
                         <div class="font-display text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-b from-blue-400 to-blue-800 tracking-tighter" id="barrelCounter">
                             21,000,000
                         </div>
@@ -360,24 +304,24 @@
                 <!-- Doughnut Chart -->
                 <div class="bg-slate-800/50 p-6 rounded-t-xl border border-slate-700 reveal delay-200 flex flex-col h-full">
                     <h3 class="font-display text-xl text-center text-white mb-2 tracking-wide">GLOBAL OIL DEPENDENCY</h3>
-                    <p class="text-center text-slate-400 text-xs tracking-widest uppercase mb-4">(EIA, 2025)</p>
+                    <p class="text-center text-slate-400 text-xs tracking-widest uppercase mb-4">(EIA, 2024)</p>
                     <div class="chart-container flex-grow">
                         <canvas id="hormuzShareChart"></canvas>
                     </div>
                     <div class="bg-slate-900/80 p-4 mt-4 rounded border-l-4 border-blue-500">
-                        <p class="text-xs text-slate-300 leading-tight"><strong class="text-white block mb-1">Why it matters:</strong> 20% of the world's liquid fuels rely on this single passage. While bypass pipelines (🔧) exist via Saudi Arabia and UAE, Bloomberg (2026) reports they can only offset ~3 million barrels, leaving a massive unfillable void during the current blockade.</p>
+                        <p class="text-xs text-slate-300 leading-tight"><strong class="text-white block mb-1">Why it matters:</strong> 20% of the world's liquid fuels rely on this single passage (U.S. Energy Information Administration [EIA], 2024). While bypass pipelines exist via Saudi Arabia and UAE, Bloomberg (2026a) indicates they cannot offset the massive void left during an active blockade.</p>
                     </div>
                 </div>
 
                 <!-- Bar Chart -->
                 <div class="bg-slate-800/50 p-6 rounded-t-xl border border-slate-700 reveal delay-200 flex flex-col h-full">
                     <h3 class="font-display text-xl text-center text-white mb-2 tracking-wide">CHOKEPOINT COMPARISON 🚢</h3>
-                    <p class="text-center text-slate-400 text-xs tracking-widest uppercase mb-4">(EIA, 2025)</p>
+                    <p class="text-center text-slate-400 text-xs tracking-widest uppercase mb-4">(EIA, 2024)</p>
                     <div class="chart-container flex-grow">
                         <canvas id="chokepointCompareChart"></canvas>
                     </div>
                     <div class="bg-slate-900/80 p-4 mt-4 rounded border-l-4 border-blue-500">
-                        <p class="text-xs text-slate-300 leading-tight"><strong class="text-white block mb-1">Why it matters:</strong> Hormuz dwarfs other vital passages like the Suez Canal. Its absolute dominance means global energy security is disproportionately tied to the geopolitical stability of the Persian Gulf, a region currently engulfed in hostilities (BBC News, 2026).</p>
+                        <p class="text-xs text-slate-300 leading-tight"><strong class="text-white block mb-1">Why it matters:</strong> Hormuz dwarfs other vital passages like the Suez Canal. Its absolute dominance means global energy security is disproportionately tied to the geopolitical stability of the Persian Gulf, a region currently engulfed in hostilities (British Broadcasting Corporation [BBC], 2026).</p>
                     </div>
                 </div>
             </div>
@@ -389,7 +333,7 @@
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900/20 via-transparent to-transparent z-0 pointer-events-none"></div>
         <div class="max-w-6xl mx-auto px-4 relative z-10">
             <div class="text-center mb-16 reveal">
-                <div class="inline-block bg-red-600 text-white font-display text-xs px-3 py-1 rounded mb-4 tracking-widest animate-pulse">LIVE CONFLICT IMPACT - MARCH 2026</div>
+                <div class="inline-block bg-red-600 text-white font-display text-xs px-3 py-1 rounded mb-4 tracking-widest animate-pulse">LIVE CONFLICT IMPACT - ONGOING</div>
                 <h2 class="text-4xl md:text-6xl font-display text-white mb-4"><span class="text-red-600">03.</span> SECURITY & TENSIONS</h2>
                 <div class="h-1 w-24 bg-red-600 mx-auto"></div>
                 <p class="mt-6 text-xl text-red-200/80 max-w-2xl mx-auto">Select a threat vector (⚠️) to analyze the risks transforming this physical chokepoint into an active theater of war.</p>
@@ -426,24 +370,24 @@
                             <div class="flex items-center gap-4 mb-6">
                                 <div class="w-16 h-16 rounded bg-red-900/50 flex items-center justify-center text-4xl border border-red-500/30" id="threat-icon">⚓</div>
                                 <div>
-                                    <div class="text-red-400 font-display text-sm tracking-widest mb-1" id="threat-subtitle">STATE ACTOR HARASSMENT (CSIS, 2025; CNN, 2026)</div>
+                                    <div class="text-red-400 font-display text-sm tracking-widest mb-1" id="threat-subtitle">STATE ACTOR HARASSMENT (CSIS, 2024; Al Jazeera, 2026)</div>
                                     <h3 class="font-display text-3xl md:text-4xl text-white" id="threat-title">Commercial Vessel Seizures</h3>
                                 </div>
                             </div>
-                            <p class="text-slate-300 text-lg leading-relaxed mb-8" id="threat-desc">State actors frequently harass or seize commercial vessels under legal pretexts. In reality, these are retaliatory actions linked to sanctions enforcement (CSIS, 2025). Recent CNN (2026) reports confirm multiple IRGC fast-attack craft interceptions this week, forcing international navies to escalate escort missions.</p>
+                            <p class="text-slate-300 text-lg leading-relaxed mb-8" id="threat-desc">State actors frequently harass or seize commercial vessels under legal pretexts. In reality, these are retaliatory actions linked to the broader conflict (Center for Strategic and International Studies [CSIS], 2024). Recent Al Jazeera (2026) reports confirm the IRGC claims complete control of the Strait, forcing international navies to heighten escort missions.</p>
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                             <!-- Explicit Interpretation Panel (Economic Theme) -->
                             <div class="bg-red-950/40 p-5 rounded border-l-4 border-red-500">
                                 <strong class="text-red-400 font-display tracking-widest text-xs uppercase block mb-1">Economic Consequence</strong>
-                                <p class="text-sm text-slate-300" id="threat-reaction">Spikes maritime insurance premiums by up to 300% for passing vessels. These multi-million dollar overhead costs are immediately passed down to global consumers via inflation (CSIS, 2025; Al Jazeera, 2026).</p>
+                                <p class="text-sm text-slate-300" id="threat-reaction">Spikes maritime insurance premiums significantly for passing vessels. These multi-million dollar overhead costs are immediately passed down to global consumers via inflation (CSIS, 2024).</p>
                             </div>
                             
                             <!-- Explicit Interpretation Panel (Geopolitical Theme) -->
                             <div class="bg-orange-950/40 p-5 rounded border-l-4 border-orange-500">
                                 <strong class="text-orange-400 font-display tracking-widest text-xs uppercase block mb-1">Geopolitical Implication</strong>
-                                <p class="text-sm text-slate-300" id="threat-geopolitics">Forces international naval coalitions into direct proximity with Iranian fast-attack craft, sharply escalating the risk of accidental kinetic engagement and retaliatory sanctions.</p>
+                                <p class="text-sm text-slate-300" id="threat-geopolitics">Forces international naval coalitions into direct proximity with Iranian fast-attack craft, sharply escalating the risk of accidental kinetic engagement and retaliatory sanctions (Bloomberg, 2026b).</p>
                             </div>
                         </div>
                     </div>
@@ -487,19 +431,19 @@
                                     <span class="text-sm text-slate-300">Est. Local Pump Increase:</span>
                                     <span class="font-display text-3xl text-red-400" id="phpImpact">+₱0.00 <span class="text-sm text-slate-500">/L</span></span>
                                 </div>
-                                <p class="text-[10px] text-slate-500 mt-2 text-right">*Estimate formula based on World Bank (2026) models: $1/bbl translates to ~₱0.40/L</p>
+                                <p class="text-[10px] text-slate-500 mt-2 text-right">*Estimate formula based on World Bank (2024) models: $1/bbl translates to ~₱0.40/L</p>
                             </div>
                         </div>
 
                         <div class="bg-blue-900/30 border-l-4 border-blue-500 p-4 rounded text-sm text-slate-300">
                             <strong class="text-blue-400 block mb-1">Why it matters locally:</strong>
-                            Every dollar increase in global crude creates a ripple effect. Higher transport costs cascade into basic commodities, food, and electricity rates, severely impacting purchasing power and driving up national inflation (World Bank, 2026).
+                            Every dollar increase in global crude creates a ripple effect. Higher transport costs cascade into basic commodities, food, and electricity rates, severely impacting purchasing power and driving up national inflation (World Bank, 2024).
                         </div>
                     </div>
 
                     <div class="p-10 lg:p-14 flex flex-col justify-center bg-slate-900">
                         <h4 class="font-display text-2xl text-center text-white mb-2">CRUDE IMPORT SOURCES</h4>
-                        <p class="text-center text-slate-400 text-xs mb-6 uppercase tracking-widest">DATA PROJECTION BASED ON OUTLOOK (DEPARTMENT OF ENERGY PHILIPPINES [DOE], 2025)</p>
+                        <p class="text-center text-slate-400 text-xs mb-6 uppercase tracking-widest">DATA PROJECTION BASED ON OUTLOOK (DOE, 2024)</p>
                         
                         <div class="chart-container" style="height: 300px;">
                             <canvas id="phImportsChart"></canvas>
@@ -507,7 +451,7 @@
                         
                         <div class="mt-8 bg-red-900/30 border border-red-800 p-4 rounded border-l-4 border-l-red-500 text-sm text-slate-300">
                             <strong class="text-red-400 block mb-1">Strategic Interpretation:</strong> 
-                            With over 70% of crude supply originating from the Middle East, the Philippines is structurally tethered to the Strait of Hormuz. It lacks domestic reserves to buffer against prolonged blockades, making it highly vulnerable to the ongoing 2026 geopolitical hostilities (BBC News, 2026).
+                            With over 70% of crude supply originating from the Middle East (Department of Energy Philippines [DOE], 2024), the Philippines is structurally tethered to the Strait of Hormuz. It lacks domestic reserves to buffer against prolonged blockades, making it highly vulnerable to the ongoing geopolitical hostilities (Reuters, 2026).
                         </div>
                     </div>
                 </div>
@@ -518,17 +462,26 @@
     <!-- 6. Footer & References -->
     <footer class="bg-slate-950 pt-16 pb-8 border-t border-slate-800 text-slate-400">
         <div class="max-w-4xl mx-auto px-4 text-center reveal">
-            <h3 class="font-display text-xl text-slate-300 mb-6 tracking-widest border-b border-slate-800 pb-4 inline-block">DATA SOURCES & REFERENCES</h3>
-            <div class="text-xs text-left space-y-3 max-w-2xl mx-auto text-slate-500">
-                <p class="pl-4 -indent-4">Al Jazeera. (2026, March 21). <em>Insurance premiums for Gulf shipping reach historic highs amid ongoing US-Iran strikes</em>. https://www.aljazeera.com/economy/2026/3/21/insurance-premiums-for-gulf-shipping-reach-historic-highs</p>
-                <p class="pl-4 -indent-4">Bloomberg. (2026, March 19). <em>Asian supply chains brace for impact as Hormuz LNG shipments stall</em>. https://www.bloomberg.com/news/articles/2026-03-19/asian-supply-chains-brace-for-impact-as-hormuz-lng-shipments-stall</p>
-                <p class="pl-4 -indent-4">British Broadcasting Corporation. (2026, March 18). <em>Global oil markets panic: Brent crude spikes past $120 amid Hormuz blockade fears</em>. BBC News. https://www.bbc.com/news/world-middle-east-20260318-global-oil-markets-panic</p>
-                <p class="pl-4 -indent-4">Cable News Network. (2026, March 20). <em>US Navy intercepts Iranian drones in Strait of Hormuz as tanker traffic plummets</em>. CNN. https://edition.cnn.com/2026/03/20/middleeast/us-navy-intercepts-iranian-drones-strait-of-hormuz-intl/index.html</p>
-                <p class="pl-4 -indent-4">Center for Strategic and International Studies. (2025). <em>Escalation in the Gulf: Maritime security and the Strait of Hormuz</em>. https://www.csis.org/analysis/escalation-gulf-maritime-security-and-strait-hormuz</p>
-                <p class="pl-4 -indent-4">Department of Energy Philippines. (2025). <em>Philippine energy supply and demand outlook 2024-2025</em>. https://www.doe.gov.ph/energy-statistics/philippine-energy-supply-and-demand-outlook-2024-2025</p>
-                <p class="pl-4 -indent-4">Reuters. (2026). <em>Red Sea and Hormuz shipping diversions strain global supply chains</em>. https://www.reuters.com/world/middle-east/red-sea-hormuz-shipping-diversions-strain-global-supply-chains-2026-03-15/</p>
-                <p class="pl-4 -indent-4">U.S. Energy Information Administration. (2025). <em>World oil transit chokepoints and energy security</em>. https://www.eia.gov/international/analysis/special-topics/World_Oil_Transit_Chokepoints</p>
-                <p class="pl-4 -indent-4">World Bank. (2026). <em>Global economic prospects: The compounding effects of energy chokepoint disruptions</em>. https://www.worldbank.org/en/publication/global-economic-prospects/compounding-effects-energy-chokepoint-disruptions-2026</p>
+            <h3 class="font-display text-xl text-slate-300 mb-6 tracking-widest border-b border-slate-800 pb-4 inline-block">REFERENCES</h3>
+            <div class="text-xs text-left space-y-4 max-w-2xl mx-auto text-slate-500 break-words leading-relaxed pl-6 -indent-6">
+                
+                <p>Al Jazeera. (2026, March 4). <em>IRGC says Iran in complete control of Strait of Hormuz amid Trump threats</em>. <a href="https://www.aljazeera.com/news/2026/3/4/irgc-says-iran-in-complete-control-of-strait-of-hormuz-amid-trump-threats" target="_blank" class="hover:text-blue-400 transition-colors">https://www.aljazeera.com/news/2026/3/4/irgc-says-iran-in-complete-control-of-strait-of-hormuz-amid-trump-threats</a></p>
+                
+                <p>Bloomberg. (2026a, March). <em>Strait of Hormuz Iran blockade ships stranded GPS jamming</em>. <a href="https://www.bloomberg.com/graphics/2026-strait-hormuz-iran-blockade-ships-stranded-gps-jamming/?embedded-checkout=true" target="_blank" class="hover:text-blue-400 transition-colors">https://www.bloomberg.com/graphics/2026-strait-hormuz-iran-blockade-ships-stranded-gps-jamming/?embedded-checkout=true</a></p>
+
+                <p>Bloomberg. (2026b, March 20). <em>Iran unwilling to talk about opening Hormuz while under attack</em>. <a href="https://www.bloomberg.com/news/articles/2026-03-20/iran-unwilling-to-talk-about-opening-hormuz-while-under-attack?embedded-checkout=true" target="_blank" class="hover:text-blue-400 transition-colors">https://www.bloomberg.com/news/articles/2026-03-20/iran-unwilling-to-talk-about-opening-hormuz-while-under-attack?embedded-checkout=true</a></p>
+                
+                <p>British Broadcasting Corporation. (2026). <em>Global oil markets panic: Brent crude spikes past $120 amid Hormuz blockade fears</em>. BBC News. <a href="https://www.bbc.com/news/articles/c15x1y8d37vo" target="_blank" class="hover:text-blue-400 transition-colors">https://www.bbc.com/news/articles/c15x1y8d37vo</a></p>
+                
+                <p>Center for Strategic and International Studies. (2024). <em>Iran's war strategy: Don't calibrate, escalate</em>. <a href="https://www.csis.org/analysis/irans-war-strategy-dont-calibrate-escalate" target="_blank" class="hover:text-blue-400 transition-colors">https://www.csis.org/analysis/irans-war-strategy-dont-calibrate-escalate</a></p>
+                
+                <p>Department of Energy Philippines. (2024). <em>2024 Philippine energy situationer and key energy statistics</em>. <a href="https://prod-cms.doe.gov.ph/documents/d/guest/2024-philippine-energy-situationer-and-key-energy-statistics-pdf" target="_blank" class="hover:text-blue-400 transition-colors">https://prod-cms.doe.gov.ph/documents/d/guest/2024-philippine-energy-situationer-and-key-energy-statistics-pdf</a></p>
+                
+                <p>Reuters. (2026, March 16). <em>Gulf importers race to reroute as Hormuz closure jolts supply chains</em>. <a href="https://www.reuters.com/world/middle-east/gulf-importers-race-reroute-hormuz-closure-jolts-supply-chains-2026-03-16/" target="_blank" class="hover:text-blue-400 transition-colors">https://www.reuters.com/world/middle-east/gulf-importers-race-reroute-hormuz-closure-jolts-supply-chains-2026-03-16/</a></p>
+                
+                <p>U.S. Energy Information Administration. (2024). <em>World oil transit chokepoints and energy security</em>. <a href="https://www.eia.gov/international/analysis/special-topics/World_Oil_Transit_Chokepoints" target="_blank" class="hover:text-blue-400 transition-colors">https://www.eia.gov/international/analysis/special-topics/World_Oil_Transit_Chokepoints</a></p>
+                
+                <p>World Bank. (2024). <em>Global economic prospects: The compounding effects of energy chokepoint disruptions</em>. <a href="https://openknowledge.worldbank.org/entities/publication/cefbbfd7-b821-46ad-a389-6e6b64edc050" target="_blank" class="hover:text-blue-400 transition-colors">https://openknowledge.worldbank.org/entities/publication/cefbbfd7-b821-46ad-a389-6e6b64edc050</a></p>
             </div>
             
             <div class="mt-16 text-slate-600 font-display tracking-widest text-xs uppercase">
@@ -541,7 +494,7 @@
     <script>
         const mapData = {
             'chokepoint': {
-                subtitle: 'TRAFFIC SEPARATION SCHEME (EIA, 2025)',
+                subtitle: 'TRAFFIC SEPARATION SCHEME (EIA, 2024)',
                 title: '2-Mile Commercial Lanes 🚢',
                 desc: 'Inbound and outbound shipping lanes are separated by a 2-mile buffer zone. These narrow corridors dictate the flow of 21 million barrels of oil daily.',
                 icon: '🚢',
@@ -555,7 +508,7 @@
                 theme: 'blue'
             },
             'gulf': {
-                subtitle: 'PERSIAN GULF TRANSIT (EIA, 2025)',
+                subtitle: 'PERSIAN GULF TRANSIT (EIA, 2024)',
                 title: 'The Origin Point 🛢️',
                 desc: 'Vessels loaded in Saudi Arabia, Kuwait, and Iraq assemble in these waters before making the perilous journey through the constrained strait toward the open ocean.',
                 icon: '🛢️',
@@ -569,9 +522,9 @@
                 theme: 'red'
             },
             'seizure-zone': {
-                subtitle: 'HIGH RISK AREA (CSIS, 2025)',
+                subtitle: 'HIGH RISK AREA (CSIS, 2024)',
                 title: 'Vessel Seizure Zone ⚠️',
-                desc: 'Recent years have seen multiple internationally flagged tankers boarded and diverted to Iranian ports while passing near this coastline (CSIS, 2025).',
+                desc: 'Recent years have seen multiple internationally flagged tankers boarded and diverted to Iranian ports while passing near this coastline.',
                 icon: '⚠️',
                 theme: 'red'
             },
@@ -645,27 +598,27 @@
         // --- Threat Matrix Logic ---
         const threatData = {
             'seizure': {
-                subtitle: 'STATE ACTOR HARASSMENT (CSIS, 2025; CNN, 2026)',
+                subtitle: 'STATE ACTOR HARASSMENT (CSIS, 2024; Al Jazeera, 2026)',
                 title: 'Commercial Vessel Seizures',
-                desc: 'State actors frequently harass or seize commercial vessels under legal pretexts. In reality, these are retaliatory actions linked to sanctions enforcement (CSIS, 2025). Recent CNN (2026) reports confirm multiple IRGC fast-attack craft interceptions this week, forcing international navies to escalate escort missions.',
+                desc: 'State actors frequently harass or seize commercial vessels under legal pretexts. In reality, these are retaliatory actions linked to the broader conflict. Recent Al Jazeera (2026) reports confirm the IRGC claims complete control of the Strait, forcing international navies to heighten escort missions.',
                 icon: '⚓',
-                reaction: 'Spikes maritime insurance premiums by up to 300% for passing vessels. These multi-million dollar overhead costs are immediately passed down to global consumers via inflation (CSIS, 2025; Al Jazeera, 2026).',
-                geopolitics: 'Forces international naval coalitions into direct proximity with Iranian fast-attack craft, sharply escalating the risk of accidental kinetic engagement and retaliatory sanctions.'
+                reaction: 'Spikes maritime insurance premiums significantly for passing vessels. These multi-million dollar overhead costs are immediately passed down to global consumers via inflation (Center for Strategic and International Studies [CSIS], 2024).',
+                geopolitics: 'Forces international naval coalitions into direct proximity with Iranian fast-attack craft, sharply escalating the risk of accidental kinetic engagement and retaliatory sanctions (Bloomberg, 2026b).'
             },
             'spillover': {
-                subtitle: 'GEOPOLITICAL CONTAGION (Reuters, 2026; BBC News, 2026)',
+                subtitle: 'GEOPOLITICAL CONTAGION (Reuters, 2026; BBC, 2026)',
                 title: 'Regional Conflict Spillover',
-                desc: 'With the ongoing 2026 U.S.-Israel vs. Iran conflict, global shipping lines are stretched to the breaking point. BBC News (2026) reports that daily kinetic exchanges in the Gulf have paralyzed regional maritime supply chains.',
+                desc: 'With the ongoing U.S.-Israel vs. Iran conflict, global shipping lines are stretched to the breaking point. The British Broadcasting Corporation (BBC, 2026) reports that daily kinetic exchanges in the Gulf have paralyzed regional maritime supply chains.',
                 icon: '🔥',
                 reaction: 'Causes massive rerouting around the Cape of Good Hope, adding weeks to transit times, burning millions of extra gallons of fuel, and straining global fleet availability (Reuters, 2026).',
                 geopolitics: 'Transforms localized proxies into a multi-front regional war. Global superpowers are forced to intervene to secure vital energy lanes, escalating local skirmishes into broad symmetric conflicts.'
             },
             'closure': {
-                subtitle: 'ASYMMETRIC WARFARE (Bloomberg, 2026)',
+                subtitle: 'ASYMMETRIC WARFARE (Bloomberg, 2026a)',
                 title: 'The "Closure" Threat',
                 desc: 'While a prolonged physical military blockade is difficult, the mere threat of deploying naval mines in the 2-mile shipping lanes is enough to paralyze traffic. It serves as the ultimate geopolitical wildcard.',
                 icon: '☢️',
-                reaction: 'Triggers panic buying and immediate, massive price shocks in the futures market. Bloomberg (2026) reports Brent crude recently spiked past $120/bbl due to closure fears, instantly draining foreign reserves of import-dependent nations.',
+                reaction: 'Triggers panic buying and immediate, massive price shocks in the futures market. Bloomberg (2026a) reported ships stranded amid GPS jamming, threatening the foreign reserves of import-dependent nations.',
                 geopolitics: 'Serves as the ultimate asymmetric deterrent. By holding 20% of the world\'s energy supply hostage, state actors can effectively blackmail Western economies and deter foreign military intervention.'
             }
         };
@@ -791,7 +744,6 @@
                 crudeSpikeVal.textContent = `+$${shockValue}`;
                 const estimatedPHP = (shockValue * 0.40).toFixed(2);
                 phpImpact.innerHTML = `+₱${estimatedPHP} <span class="text-sm text-slate-500">/L</span>`;
-                phpImpact.style.color = '#ef4444';
                 
                 if (shockValue >= 100) phpImpact.className = "font-display text-4xl text-red-700 font-bold drop-shadow-lg";
                 else if (shockValue >= 50) phpImpact.className = "font-display text-3xl text-red-600 font-bold drop-shadow-md";
