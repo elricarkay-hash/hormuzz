@@ -10,8 +10,8 @@
     
     <style>
         /* Typography */
-        body { font-family: 'Inter', sans-serif; overflow-x: hidden; background-color: #0f172a; }
-        h1, h2, h3, h4, .font-display { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; background-color: #0f172a; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+        h1, h2, h3, h4, .font-display { font-family: 'Oswald', sans-serif; text-transform: uppercase; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
         
         /* Infographic Scroll Animations */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
@@ -85,7 +85,7 @@
         .hotspot-red { color: #ef4444; }
         
         .fade-enter { opacity: 0; transform: translateY(10px); }
-        .fade-enter-active { opacity: 1; transform: translateY(0); transition: opacity 300ms, transform 300ms; }
+        .fade-enter-active { opacity: 1; transform: translateY(0); transition: opacity 300ms, transform 300ms; backface-visibility: hidden; perspective: 1000px; }
 
         input[type=range].slider-blue::-webkit-slider-thumb { background: #38bdf8; box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); border: 2px solid #fff; }
         input[type=range].slider-blue::-webkit-slider-runnable-track { background: #1e3a8a; }
@@ -119,9 +119,9 @@
                 ACTIVE CONFLICT ZONE - ONGOING
             </div>
             
-            <h1 class="text-6xl md:text-8xl lg:text-[9rem] font-bold font-display leading-none mb-2 text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 drop-shadow-2xl">
+            <h1 class="text-6xl md:text-8xl lg:text-[9rem] font-bold font-display leading-none mb-2 bg-clip-text bg-gradient-to-b from-white to-slate-300 text-transparent" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
                 THE 21-MILE<br>
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">CHOKEPOINT</span>
+                <span class="bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500 text-transparent" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">CHOKEPOINT</span>
             </h1>
             
             <h2 class="text-xl md:text-3xl font-display tracking-[0.2em] text-slate-300 mb-8 mt-4">
@@ -180,21 +180,21 @@
 
                         <!-- Clean Map Labels over Satellite Landmasses -->
                         <div class="absolute top-[15%] right-[30%] z-20 flex flex-col items-center pointer-events-none">
-                            <div class="font-display text-white/95 tracking-[0.4em] text-4xl md:text-5xl font-bold drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">IRAN</div>
+                            <div class="font-display text-white/95 tracking-[0.4em] text-4xl md:text-5xl font-bold" style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">IRAN</div>
                         </div>
                         <div class="absolute bottom-[20%] left-[15%] z-20 flex flex-col items-center pointer-events-none">
-                            <div class="font-display text-white/95 tracking-[0.3em] text-3xl md:text-4xl font-bold drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">U.A.E.</div>
+                            <div class="font-display text-white/95 tracking-[0.3em] text-3xl md:text-4xl font-bold" style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">U.A.E.</div>
                         </div>
                         <div class="absolute bottom-[25%] right-[25%] z-20 flex flex-col items-start justify-center pointer-events-none">
-                            <div class="font-display text-white/95 tracking-[0.3em] text-3xl md:text-4xl font-bold drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">OMAN</div>
+                            <div class="font-display text-white/95 tracking-[0.3em] text-3xl md:text-4xl font-bold" style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">OMAN</div>
                         </div>
 
                         <!-- The Shipping Route -->
                         <div class="route-arrows pointer-events-none">➔ ➔ ➔ ➔ ➔ ➔ ➔ ➔ ➔ ➔ ➔ ➔</div>
 
                         <!-- Water Body Labels -->
-                        <div class="absolute top-[40%] left-[10%] z-10 font-display text-blue-100/60 text-xl md:text-2xl tracking-[0.4em] transform -rotate-12 pointer-events-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">PERSIAN GULF</div>
-                        <div class="absolute bottom-[35%] right-[5%] z-10 font-display text-blue-100/60 text-lg md:text-xl tracking-[0.4em] transform -rotate-12 pointer-events-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">GULF OF OMAN</div>
+                        <div class="absolute top-[40%] left-[10%] z-10 font-display text-blue-100/60 text-xl md:text-2xl tracking-[0.4em] transform -rotate-12 pointer-events-none" style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">PERSIAN GULF</div>
+                        <div class="absolute bottom-[35%] right-[5%] z-10 font-display text-blue-100/60 text-lg md:text-xl tracking-[0.4em] transform -rotate-12 pointer-events-none" style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">GULF OF OMAN</div>
 
                         <!-- Commercial Hotspots -->
                         <div class="hotspot-group hotspot-blue commercial-layer" style="top: 48%; left: 52%;" onclick="showMapInfo('chokepoint', this)">
@@ -288,7 +288,7 @@
                     
                     <div class="text-center border-l border-slate-700 pl-0 lg:pl-12">
                         <div class="text-slate-500 font-display text-sm tracking-widest mb-2">DAILY TRANSIT VOLUME (EIA, 2024)</div>
-                        <div class="font-display text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-b from-blue-400 to-blue-800 tracking-tighter" id="barrelCounter">
+                        <div class="font-display text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-b from-blue-300 to-blue-700 tracking-tighter" id="barrelCounter" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
                             21,000,000
                         </div>
                         <div class="font-display text-lg text-blue-300 tracking-[0.2em] mt-2">BARRELS / DAY 🛢️</div>
