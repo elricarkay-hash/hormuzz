@@ -15,10 +15,11 @@
         
         /* Text Rendering Optimization */
         * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        h1, h2, h3, h4, h5, h6 { will-change: auto; transform: translateZ(0); }
+        .font-display { letter-spacing: inherit; }
         
         /* Infographic Scroll Animations */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); backface-visibility: hidden; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); backface-visibility: hidden; will-change: opacity, transform; }\n        .reveal.active { opacity: 1; transform: translateY(0); will-change: auto; }
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
 
@@ -122,9 +123,9 @@
                 ACTIVE CONFLICT ZONE - ONGOING
             </div>
             
-            <h1 class="text-6xl md:text-8xl lg:text-[9rem] font-bold font-display leading-none mb-2 bg-clip-text bg-gradient-to-b from-white to-slate-300 text-transparent" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            <h1 class="text-6xl md:text-8xl lg:text-[9rem] font-bold font-display leading-none mb-2 text-white" style="text-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 4px 12px rgba(0, 0, 0, 0.8);">
                 THE 21-MILE<br>
-                <span class="bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500 text-transparent" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">CHOKEPOINT</span>
+                <span class="text-blue-400" style="text-shadow: 0 0 30px rgba(59, 130, 246, 0.7), 0 4px 12px rgba(0, 0, 0, 0.8);">CHOKEPOINT</span>
             </h1>
             
             <h2 class="text-xl md:text-3xl font-display tracking-[0.2em] text-slate-300 mb-8 mt-4">
@@ -291,7 +292,7 @@
                     
                     <div class="text-center border-l border-slate-700 pl-0 lg:pl-12">
                         <div class="text-slate-500 font-display text-sm tracking-widest mb-2">DAILY TRANSIT VOLUME (EIA, 2024)</div>
-                        <div class="font-display text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-b from-blue-300 to-blue-700 tracking-tighter" id="barrelCounter" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        <div class="font-display text-6xl md:text-7xl text-blue-300 tracking-tighter font-bold" id="barrelCounter" style="text-shadow: 0 0 20px rgba(147, 197, 253, 0.6), 0 4px 8px rgba(0, 0, 0, 0.8);">
                             21,000,000
                         </div>
                         <div class="font-display text-lg text-blue-300 tracking-[0.2em] mt-2">BARRELS / DAY 🛢️</div>
@@ -748,8 +749,8 @@
                 const estimatedPHP = (shockValue * 0.40).toFixed(2);
                 phpImpact.innerHTML = `+₱${estimatedPHP} <span class="text-sm text-slate-500">/L</span>`;
                 
-                if (shockValue >= 100) phpImpact.className = "font-display text-4xl text-red-700 font-bold drop-shadow-lg";
-                else if (shockValue >= 50) phpImpact.className = "font-display text-3xl text-red-600 font-bold drop-shadow-md";
+                if (shockValue >= 100) phpImpact.className = "font-display text-4xl text-red-700 font-bold";
+                else if (shockValue >= 50) phpImpact.className = "font-display text-3xl text-red-600 font-bold";
                 else if (shockValue >= 20) phpImpact.className = "font-display text-3xl text-red-500 font-bold";
                 else phpImpact.className = "font-display text-3xl text-red-400";
             });
